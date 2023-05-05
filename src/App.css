@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
+/* CORES */
+:root {
+    --vermelho: #bd0b0c;
+    --cinza: #cfd4de;
+    --preto: #0c0b10;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* RESET CSS */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* APP */
+div.app {
+    display: flex;
+    flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* HEADER */
+header.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+    box-shadow: #3264b0 0px 5px, #ffcc01 0px 10px;
+    z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+div.logo-container {
+    width: 130px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div.logo-container img {
+    width: 100%;
+}
+
+/* POKEBALL */
+
+section.pokeball {
+    position: relative;
+    width: 100%;
+}
+
+.centro-pokeball {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 20px solid var(--preto);
+    transform: translate(-50%, -50%);
+}
+
+div.pokeball-vermelho,
+div.pokeball-cinza {
+    height: 100px;
+}
+
+div.pokeball-vermelho {
+    background: var(--vermelho);
+}
+
+div.pokeball-preto {
+    background: var(--preto);
+    height: 35px;
+}
+
+div.pokeball-cinza {
+    background: var(--cinza);
+}
+
+/* PRINCIPAL */
+div.principal {
+  
 }
