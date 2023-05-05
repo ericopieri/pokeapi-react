@@ -133,6 +133,7 @@ table {
 
 /* APP */
 div.app {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -194,5 +195,5 @@ div.pokeball-cinza {
 
 /* PRINCIPAL */
 div.principal {
-  
+    flex: 1;
 }
