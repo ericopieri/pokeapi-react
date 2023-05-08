@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Noto+Serif:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Titillium+Web&display=swap");
 
 /* CORES */
 :root {
@@ -140,7 +141,6 @@ table {
 /* UTILS */
 
 .title-page {
-    width: 100%;
     font-size: 1.65em;
     font-weight: bold;
     padding-top: 8px;
@@ -159,21 +159,34 @@ div.app {
 }
 
 /* HEADER */
-header.header {
+div.logo-container {
     display: flex;
     align-items: center;
+    padding: 20px 0;
     justify-content: center;
-    padding: 25px 0;
-    box-shadow: #3264b0 0px 5px, #ffcc01 0px 10px;
-    z-index: 1;
 }
 
 div.logo-container {
+    margin: 0 auto;
     width: 130px;
 }
 
 div.logo-container img {
     width: 100%;
+}
+
+div.header-fita {
+    display: block;
+    height: 5px;
+    width: 100%;
+}
+
+div.fita-azul {
+    background: #3264b0;
+}
+
+div.fita-amarela {
+    background: #ffcc01;
 }
 
 /* POKEBALL */
@@ -216,5 +229,115 @@ div.pokeball-cinza {
 /* PRINCIPAL */
 main.principal {
     flex: 1;
-    margin: 30px 15px;
+    margin: 20px 15px;
+}
+
+/* POKEMONS CONTAINER */
+div.pokemons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+div.card-pokemon {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    flex: 1;
+    height: 450px;
+    min-width: 275px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+        rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+        rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+div.box-img {
+    position: relative;
+    height: 220px;
+    border-radius: 10px 10px 0 0;
+    background: tomato;
+}
+
+img.img-poke {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 175px;
+    top: 50%;
+}
+
+div.loading-blackout p {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+div.loading-blackout p.loading-pikachu {
+    font-size: 1em;
+    color: rgb(51, 51, 51);
+}
+
+div.loading-blackout img {
+    width: 150px;
+}
+
+div.loading-blackout {
+    z-index: 1000000000;
+    height: 100%;
+    width: 100%;
+    background: white;
+    border: 3px solid yellow;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+div.infos-pokemon {
+    flex: 1;
+    padding: 25px;
+}
+
+p.tipo {
+    font-family: "Noto Serif", serif;
+    text-align: center;
+    color: #afafaf;
+}
+
+p.nome-pokemon {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(41, 41, 41);
+}
+
+div.box-stats {
+    width: 100%;
+    padding: 15px 0;
+    border-radius: 0 0 10px 10px;
+    color: rgb(236, 236, 236);
+    background: tomato;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+div.hp {
+    border-left: 1px solid grey;
+}
+
+.title-stat {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+div.box-stats svg,
+div.box-stats div.hp-value {
+    font-size: 1.3em;
 }
