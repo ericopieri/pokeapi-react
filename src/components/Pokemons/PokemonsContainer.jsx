@@ -31,7 +31,7 @@ function PokemonsContainer() {
                 setIsLoading(true);
 
                 const { data: pokemonsList } = await axios.get(
-                    "https://pokeapi.co/api/v2/pokemon/?offset=1&limit=24"
+                    "https://pokeapi.co/api/v2/pokemon/?offset=24&limit=24"
                 );
 
                 setPokemons(pokemonsList);
