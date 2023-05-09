@@ -136,6 +136,7 @@ table {
 
 * {
     font-family: "Roboto";
+    box-sizing: border-box;
 }
 
 /* UTILS */
@@ -192,11 +193,15 @@ div.fita-amarela {
 /* POKEBALL */
 
 section.pokeball {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     position: relative;
     width: 100%;
 }
 
 .centro-pokeball {
+    box-sizing: content-box;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -229,7 +234,7 @@ div.pokeball-cinza {
 /* PRINCIPAL */
 main.principal {
     flex: 1;
-    margin: 20px 15px;
+    margin: 40px;
 }
 
 /* POKEMONS CONTAINER */
@@ -237,7 +242,7 @@ div.pokemons-container {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 50px;
 }
 
 div.card-pokemon {
@@ -245,18 +250,20 @@ div.card-pokemon {
     flex-direction: column;
     border-radius: 10px;
     flex: 1;
-    height: 450px;
-    min-width: 275px;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-        rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-        rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    height: 420px;
+    min-width: 225px;
+    max-width: 280px;
+    box-shadow: rgb(216, 216, 216) 0px 0px 0px 3px;
+}
+
+div.card-pokemon:hover {
+    scale: 1.02;
 }
 
 div.box-img {
     position: relative;
     height: 220px;
     border-radius: 10px 10px 0 0;
-    background: tomato;
 }
 
 img.img-poke {
@@ -307,6 +314,8 @@ p.tipo {
 }
 
 p.nome-pokemon {
+    cursor: pointer;
+    padding: 3px 0;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
@@ -315,11 +324,11 @@ p.nome-pokemon {
 }
 
 div.box-stats {
+    user-select: none;
     width: 100%;
-    padding: 15px 0;
+    padding: 10px 0;
     border-radius: 0 0 10px 10px;
-    color: rgb(236, 236, 236);
-    background: tomato;
+    color: rgb(255, 255, 255);
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -340,4 +349,204 @@ div.hp {
 div.box-stats svg,
 div.box-stats div.hp-value {
     font-size: 1.3em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 15px 0;
+    align-items: center;
+}
+
+button.btn-n-p {
+    padding: 5px 15px;
+    font-size: 1.125em;
+    font-weight: bold;
+    background: #ffcc01;
+    cursor: pointer;
+    color: #3264b0;
+    border-radius: 3px;
+    outline: none;
+    border: 2px solid #3264b0;
+    transition: 0.3s ease;
+}
+
+.stats {
+    position: relative;
+}
+
+button.btn-n-p:hover {
+    background: #3264b0;
+    color: #ffcc01;
+}
+
+button.btn-n-p.disabled {
+    background: #dadada;
+    color: #8b8b8b;
+    border: 2px solid #8b8b8b;
+    cursor: auto;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 0 30px 0;
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+}
+
+/* STATS */
+
+.stats:hover div.dropdown-stats {
+    display: block;
+    opacity: 100;
+}
+
+div.dropdown-stats {
+    transition: 0.3s ease-in-out opacity;
+    display: none;
+    opacity: 0;
+    font-size: 0.8em;
+    color: black;
+    left: 100%;
+    width: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid gray;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    position: absolute;
+    z-index: 100;
+}
+
+div.dropdown-stats::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+}
+
+div.stats-div + div.stats-div {
+    margin-top: 5px;
+}
+
+span.stat-value {
+    color: #636363;
+}
+
+span.name-stat {
+    margin-right: 3px;
+    font-weight: bold;
+}
+
+/* TIPOS */
+
+.grass {
+    background: #7ac74c;
+}
+
+.normal {
+    background: #a8a77a;
+}
+
+.fire {
+    background: #ee8130;
+}
+
+.water {
+    background: #6390f0;
+}
+
+.electric {
+    background: #f7d02c;
+}
+
+.fighting {
+    background: #c22e28;
+}
+
+.poison {
+    background: #a33ea1;
+}
+
+.ground {
+    background: #e2bf65;
+}
+
+.flying {
+    background: #a98ff3;
+}
+
+.psychic {
+    background: #f95587;
+}
+
+.bug {
+    background: #a6b91a;
+}
+
+.rock {
+    background: #b6a136;
+}
+
+.ghost {
+    background: #735797;
+}
+
+.ice {
+    background: #96d9d6;
+}
+
+.dragon {
+    background: #6f35fc;
+}
+
+.dark {
+    background: #705746;
+}
+
+.steel {
+    background: #b7b7ce;
+}
+
+.fairy {
+    background: #d685ad;
+}
+
+/* MEDIA QUERYS */
+
+@media (max-width: 580px) {
+    div.card-pokemon {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 825px) {
+    div.card-pokemon {
+        max-width: 100%;
+    }
+}
+
+/* UTILS */
+
+div.loading-box {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div.loading-box p {
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold;
 }

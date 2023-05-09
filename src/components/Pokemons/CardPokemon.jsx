@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import PokemonImagem from "../../assets/img/pokemon.png";
 import PikachuLoading from "../../assets/img/pikachu loading.gif";
 
+import DropdownStats from "./DropdownStats";
+
 import { BsFillEyeFill } from "react-icons/bs";
 
 import axios from "axios";
@@ -17,7 +19,6 @@ function CardPokemon({ name, urlToFetch }) {
 
             try {
                 const { data: pokemonDataFetch } = await axios.get(urlToFetch);
-                console.log(pokemonDataFetch);
 
                 setPokemonInfo(pokemonDataFetch);
             } catch (e) {
@@ -40,7 +41,13 @@ function CardPokemon({ name, urlToFetch }) {
                 </div>
             ) : (
                 <>
-                    <div className="box-img">
+                    <div
+                        className={
+                            pokemonInfo?.types
+                                ? "box-img " + pokemonInfo.types[0].type.name
+                                : "box-img"
+                        }
+                    >
                         <img
                             className="img-poke"
                             src={
@@ -60,10 +67,21 @@ function CardPokemon({ name, urlToFetch }) {
                         </p>
                         <p className="nome-pokemon">{name.toUpperCase()}</p>
                     </div>
-                    <div className="box-stats">
+                    <div
+                        className={
+                            pokemonInfo?.types
+                                ? "box-stats " + pokemonInfo.types[0].type.name
+                                : "box-stats"
+                        }
+                    >
                         <div className="stats">
                             <h2 className="title-stat">View Stats</h2>
                             <BsFillEyeFill />
+                            <DropdownStats
+                                statsArray={
+                                    pokemonInfo?.stats ? pokemonInfo.stats : []
+                                }
+                            />
                         </div>
                         <div className="hp">
                             <h2 className="title-stat">HP</h2>
