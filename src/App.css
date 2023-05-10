@@ -388,6 +388,132 @@ button.btn-n-p.disabled {
     cursor: auto;
 }
 
+/* POKEMON INDIVIDUAL */
+
+div.individual-content {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+div.box-img-poke {
+    align-self: flex-start;
+    background-image: url("./assets/img/fundo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 25px;
+    width: 520px;
+    border-radius: 3px;
+    border: 10px solid #a6b91a;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
+div.box-img-poke img {
+    width: 100%;
+}
+
+div.stats-individual {
+    border-radius: 2px;
+    align-self: flex-start;
+    width: 675px;
+}
+
+nav.tabs-container {
+    color: #3264b0;
+    border: 2px solid #3264b0;
+    font-size: 1.2em;
+    border-radius: 2px;
+    display: flex;
+}
+
+div.tab-box {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+div.tab-box.active {
+    background: #ffcc01;
+}
+
+div.content-tab {
+    padding: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: 1px solid gray;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+/* FISIC STATS */
+
+fieldset.set-stat {
+    margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+
+fieldset.set-stat label {
+    font-size: 1.1em;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
+    background: #735797;
+    left: 25px;
+    position: absolute;
+}
+
+fieldset.set-stat input {
+    font-size: 1.5em;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 2px solid rgb(216, 216, 216);
+    line-height: 60px;
+    background: none;
+    width: 100%;
+    height: 100%;
+}
+
+fieldset.inline-inputs {
+    display: flex;
+    gap: 25px;
+}
+
+section.tipos-container {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+    display: flex;
+}
+
+div.type-box {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 5px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    max-width: 111px;
+    height: 40px;
+    padding: 10px 10px;
+    font-size: 1.1em;
+    line-height: 40px;
+    color: white;
+}
+div.type-box span {
+    margin-left: 5px;
+    display: inline;
+}
+
+div.type-box img {
+    height: 100%;
+}
+
 /* FOOTER */
 
 footer {
@@ -453,72 +579,144 @@ span.name-stat {
     background: #7ac74c;
 }
 
+div.box-img-poke.grass {
+    border-color: #7ac74c;
+}
+
 .normal {
     background: #a8a77a;
+}
+
+div.box-img-poke.normal {
+    border-color: #a8a77a;
 }
 
 .fire {
     background: #ee8130;
 }
 
+div.box-img-poke.fire {
+    border-color: #ee8130;
+}
+
 .water {
     background: #6390f0;
+}
+
+div.box-img-poke.water {
+    border-color: #6390f0;
 }
 
 .electric {
     background: #f7d02c;
 }
 
+div.box-img-poke.electric {
+    border-color: #f7d02c;
+}
+
 .fighting {
     background: #c22e28;
+}
+
+div.box-img-poke.fighting {
+    border-color: #c22e28;
 }
 
 .poison {
     background: #a33ea1;
 }
 
+div.box-img-poke.poison {
+    border-color: #a33ea1;
+}
+
 .ground {
     background: #e2bf65;
+}
+
+div.box-img-poke.ground {
+    border-color: #e2bf65;
 }
 
 .flying {
     background: #a98ff3;
 }
 
+div.box-img-poke.flying {
+    border-color: #a98ff3;
+}
+
 .psychic {
     background: #f95587;
+}
+
+div.box-img-poke.psychic {
+    border-color: #f95587;
 }
 
 .bug {
     background: #a6b91a;
 }
 
+div.box-img-poke.bug {
+    border-color: #a6b91a;
+}
+
 .rock {
     background: #b6a136;
+}
+
+div.box-img-poke.rock {
+    border-color: #b6a136;
 }
 
 .ghost {
     background: #735797;
 }
 
+div.box-img-poke.ghost {
+    border-color: #735797;
+}
+
 .ice {
     background: #96d9d6;
+}
+
+div.box-img-poke.ice {
+    border-color: #96d9d6;
 }
 
 .dragon {
     background: #6f35fc;
 }
 
+div.box-img-poke.dragon {
+    border-color: #6f35fc;
+}
+
 .dark {
     background: #705746;
+}
+
+div.box-img-poke.dark {
+    border-color: #705746;
 }
 
 .steel {
     background: #b7b7ce;
 }
 
+div.box-img-poke.steel {
+    border-color: #b7b7ce;
+}
+
 .fairy {
     background: #d685ad;
+}
+
+div.box-img-poke.fairy {
+    border-color: #d685ad;
 }
 
 /* MEDIA QUERYS */
