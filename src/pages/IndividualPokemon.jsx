@@ -5,6 +5,9 @@ import FisicStats from "../components/IndividualPokemon/FisicStats";
 import Abilities from "../components/IndividualPokemon/Abilities";
 import BasicStats from "../components/IndividualPokemon/BasicStats";
 
+import Loading from "../utils/utilsComponents/Loading";
+import ErrorTitle from "../components/ErrorTitle";
+
 import axios from "axios";
 
 function IndividualPokemon() {
@@ -58,56 +61,65 @@ function IndividualPokemon() {
 
     return (
         <div className="individual-content">
-            <div
-                className={
-                    pokemonInfo?.types
-                        ? "box-img-poke " + pokemonInfo.types[0].type.name
-                        : "box-img-poke"
-                }
-            >
-                <img
-                    src={
-                        pokemonInfo?.sprites &&
-                        pokemonInfo.sprites.front_default
-                    }
-                    alt="Imagem Pokemon"
-                />
-            </div>
-            <div className="stats-individual">
-                <nav className="tabs-container">
+            {isLoading ? (
+                <Loading />
+            ) : Object.keys(pokemonInfo).length > 0 ? (
+                <>
                     <div
                         className={
-                            activeContent === "fisicStats"
-                                ? "tab-box active"
-                                : "tab-box"
+                            pokemonInfo?.types
+                                ? "box-img-poke " +
+                                  pokemonInfo.types[0].type.name
+                                : "box-img-poke"
                         }
-                        onClick={() => setActiveContent("fisicStats")}
                     >
-                        Informações Físicas
+                        <img
+                            src={
+                                pokemonInfo?.sprites &&
+                                pokemonInfo.sprites.front_default
+                            }
+                            alt="Imagem Pokemon"
+                        />
                     </div>
-                    <div
-                        className={
-                            activeContent === "stats"
-                                ? "tab-box active"
-                                : "tab-box"
-                        }
-                        onClick={() => setActiveContent("stats")}
-                    >
-                        Stats Básicas
+                    <div className="stats-individual">
+                        <nav className="tabs-container">
+                            <div
+                                className={
+                                    activeContent === "fisicStats"
+                                        ? "tab-box active"
+                                        : "tab-box"
+                                }
+                                onClick={() => setActiveContent("fisicStats")}
+                            >
+                                Informações Físicas
+                            </div>
+                            <div
+                                className={
+                                    activeContent === "stats"
+                                        ? "tab-box active"
+                                        : "tab-box"
+                                }
+                                onClick={() => setActiveContent("stats")}
+                            >
+                                Stats Básicas
+                            </div>
+                            <div
+                                className={
+                                    activeContent === "abilities"
+                                        ? "tab-box active"
+                                        : "tab-box"
+                                }
+                                onClick={() => setActiveContent("abilities")}
+                            >
+                                Habilidades
+                            </div>
+                        </nav>
+                        {activeTabContent()}
                     </div>
-                    <div
-                        className={
-                            activeContent === "abilities"
-                                ? "tab-box active"
-                                : "tab-box"
-                        }
-                        onClick={() => setActiveContent("abilities")}
-                    >
-                        Habilidades
-                    </div>
-                </nav>
-                {activeTabContent()}
-            </div>
+                </>
+            ) : (
+                <ErrorTitle />
+            )}
         </div>
     );
 }
