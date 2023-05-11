@@ -780,6 +780,11 @@ div.box-img-poke.fairy {
     fieldset.set-stat input {
         font-size: 1em;
     }
+
+    fieldset.set-stat label {
+        left: 10px;
+        font-size: 1em;
+    }
 }
 
 /* UTILS */
