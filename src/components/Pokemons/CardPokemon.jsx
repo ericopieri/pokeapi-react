@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PokemonImagem from "../../assets/img/pokemon.png";
+import NoImage from "../../assets/img/noimage.png";
 import PikachuLoading from "../../assets/img/pikachu loading.gif";
 
 import DropdownStats from "./DropdownStats";
@@ -34,6 +35,14 @@ function CardPokemon({ name, urlToFetch }) {
         getPokemonByPropURL();
     }, [urlToFetch]);
 
+    function truncateString(str, num) {
+        if (str.length <= num) {
+            return str;
+        }
+
+        return str.slice(0, num) + "...";
+    }
+
     return (
         <div className="card-pokemon">
             {isLoading ? (
@@ -54,8 +63,11 @@ function CardPokemon({ name, urlToFetch }) {
                         <img
                             className="img-poke"
                             src={
-                                pokemonInfo?.sprites &&
-                                pokemonInfo.sprites.front_default
+                                pokemonInfo?.sprites
+                                    ? pokemonInfo.sprites.front_default
+                                        ? pokemonInfo.sprites.front_default
+                                        : NoImage
+                                    : NoImage
                             }
                             alt="Imagem Pokemon"
                         />
@@ -71,8 +83,9 @@ function CardPokemon({ name, urlToFetch }) {
                         <p
                             className="nome-pokemon"
                             onClick={() => redirectTo("/" + name)}
+                            title={name}
                         >
-                            {name.toUpperCase()}
+                            {truncateString(name.toUpperCase(), 20)}
                         </p>
                     </div>
                     <div

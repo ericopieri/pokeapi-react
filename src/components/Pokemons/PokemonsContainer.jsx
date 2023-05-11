@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import CardPokemon from "./CardPokemon";
+import PageButtons from "./PageButtons";
 import Loading from "../../utils/utilsComponents/Loading";
 
 import axios from "axios";
@@ -9,13 +10,14 @@ function PokemonsContainer() {
     const [pokemons, setPokemons] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    async function changePage(next = true) {
+    async function changePage(page) {
         try {
-            const urlToFetchNewPage = next ? pokemons.next : pokemons.previous;
-
             setIsLoading(true);
 
-            const { data: pokemonsList } = await axios.get(urlToFetchNewPage);
+            const offset = (page - 1) * 24;
+            const { data: pokemonsList } = await axios.get(
+                `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=24`
+            );
 
             setPokemons(pokemonsList);
         } catch (e) {
@@ -31,7 +33,7 @@ function PokemonsContainer() {
                 setIsLoading(true);
 
                 const { data: pokemonsList } = await axios.get(
-                    "https://pokeapi.co/api/v2/pokemon/?offset=24&limit=24"
+                    "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=24"
                 );
 
                 setPokemons(pokemonsList);
@@ -58,24 +60,11 @@ function PokemonsContainer() {
                     ))
                 )}
             </div>
-            <div className="buttons">
-                <button
-                    className={
-                        pokemons?.previous ? "btn-n-p" : "btn-n-p disabled"
-                    }
-                    onClick={() =>
-                        pokemons?.previous ? changePage(false) : null
-                    }
-                >
-                    Previous
-                </button>
-                <button
-                    className={pokemons?.next ? "btn-n-p" : "btn-n-p disabled"}
-                    onClick={() => (pokemons?.next ? changePage() : null)}
-                >
-                    Next
-                </button>
-            </div>
+            <PageButtons
+                next={pokemons.next}
+                previous={pokemons.previous}
+                changePage={changePage}
+            />
         </>
     );
 }
