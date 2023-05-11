@@ -5,7 +5,10 @@ import FisicStats from "../components/IndividualPokemon/FisicStats";
 import Abilities from "../components/IndividualPokemon/Abilities";
 import BasicStats from "../components/IndividualPokemon/BasicStats";
 
+import NoImage from "../assets/img/noimage.png";
+
 import Loading from "../utils/utilsComponents/Loading";
+
 import ErrorTitle from "../components/ErrorTitle";
 
 import axios from "axios";
@@ -78,10 +81,15 @@ function IndividualPokemon() {
                     >
                         <img
                             src={
-                                pokemonInfo?.sprites &&
-                                (showFront
-                                    ? pokemonInfo.sprites.front_default
-                                    : pokemonInfo.sprites.back_default)
+                                pokemonInfo?.sprites
+                                    ? showFront
+                                        ? pokemonInfo.sprites.front_default
+                                            ? pokemonInfo.sprites.front_default
+                                            : NoImage
+                                        : pokemonInfo.sprites.back_default
+                                        ? pokemonInfo.sprites.back_default
+                                        : NoImage
+                                    : NoImage
                             }
                             alt="Imagem Pokemon"
                         />

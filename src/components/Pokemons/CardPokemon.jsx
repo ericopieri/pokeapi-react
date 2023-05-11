@@ -67,7 +67,7 @@ function CardPokemon({ name, urlToFetch }) {
                                     ? pokemonInfo.sprites.front_default
                                         ? pokemonInfo.sprites.front_default
                                         : NoImage
-                                    : NoImage
+                                    : null
                             }
                             alt="Imagem Pokemon"
                         />
