@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import PokemonImagem from "../../assets/img/pokemon.png";
 import PikachuLoading from "../../assets/img/pikachu loading.gif";
@@ -10,6 +11,8 @@ import { BsFillEyeFill } from "react-icons/bs";
 import axios from "axios";
 
 function CardPokemon({ name, urlToFetch }) {
+    const redirectTo = useNavigate();
+
     const [isLoading, setIsLoading] = useState(false);
     const [pokemonInfo, setPokemonInfo] = useState({});
 
@@ -65,7 +68,12 @@ function CardPokemon({ name, urlToFetch }) {
                                     .join("/")
                                     .toUpperCase()}
                         </p>
-                        <p className="nome-pokemon">{name.toUpperCase()}</p>
+                        <p
+                            className="nome-pokemon"
+                            onClick={() => redirectTo("/" + name)}
+                        >
+                            {name.toUpperCase()}
+                        </p>
                     </div>
                     <div
                         className={
