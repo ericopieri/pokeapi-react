@@ -5,7 +5,7 @@ import AbilityFieldset from "./AbilityFieldset";
 function Abilities({ abilities }) {
     function mapAbilitiesFieldset() {
         return abilities.map(({ ability }) => (
-            <AbilityFieldset url={ability.url} />
+            <AbilityFieldset url={ability.url} key={ability.name} />
         ));
     }
 
