@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import FisicStats from "../components/IndividualPokemon/FisicStats";
+import Abilities from "../components/IndividualPokemon/Abilities";
+import BasicStats from "../components/IndividualPokemon/BasicStats";
 
 import axios from "axios";
 
@@ -45,8 +47,10 @@ function IndividualPokemon() {
                             types={pokemonInfo.types}
                         />
                     );
-                case "teste2":
-                    return <div>teste2</div>;
+                case "stats":
+                    return <BasicStats stats={pokemonInfo.stats} />;
+                case "abilities":
+                    return <Abilities abilities={pokemonInfo.abilities} />;
                 default:
                     return <div>Sem nada!</div>;
             }
@@ -83,23 +87,23 @@ function IndividualPokemon() {
                     </div>
                     <div
                         className={
-                            activeContent === "teste2"
+                            activeContent === "stats"
                                 ? "tab-box active"
                                 : "tab-box"
                         }
-                        onClick={() => setActiveContent("teste2")}
+                        onClick={() => setActiveContent("stats")}
                     >
-                        teste2
+                        Stats Básicas
                     </div>
                     <div
                         className={
-                            activeContent === "teste3"
+                            activeContent === "abilities"
                                 ? "tab-box active"
                                 : "tab-box"
                         }
-                        onClick={() => setActiveContent("teste3")}
+                        onClick={() => setActiveContent("abilities")}
                     >
-                        teste2
+                        Habilidades
                     </div>
                 </nav>
                 {activeTabContent()}

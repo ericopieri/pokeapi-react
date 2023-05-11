@@ -44,8 +44,6 @@ const pokemonTypesIcons = {
     water,
 };
 
-console.log(pokemonTypesIcons);
-
 function FisicStats({ name, height, weight, types }) {
     function mapTypes() {
         return types.map(({ type }) => (
@@ -66,28 +64,22 @@ function FisicStats({ name, height, weight, types }) {
         return String(valueInMeters.toFixed(2));
     }
 
-    async function getSvgIcon() {
-        const svg = await require("../../assets/icons_pokemon/electric.svg");
-
-        return svg;
-    }
-
     return (
         <div className="content-tab">
             <Fieldset
-                name="nome"
-                labelText="Nome"
+                name="name"
+                labelText="Name"
                 value={capitalizaFirstLetter(name)}
             />
             <fieldset className="inline-inputs">
                 <Fieldset
                     name="height"
-                    labelText="Altura"
+                    labelText="Height"
                     value={convertFeetToCentimeters() + "cm"}
                 />
                 <Fieldset
                     name="weight"
-                    labelText="Peso"
+                    labelText="Weight"
                     value={weight + "kg"}
                 />
             </fieldset>
