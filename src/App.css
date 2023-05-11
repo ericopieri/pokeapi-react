@@ -734,6 +734,54 @@ div.box-img-poke.fairy {
     }
 }
 
+@media (max-width: 1160px) {
+    div.individual-content {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    div.box-img-poke {
+        margin: 0 auto;
+    }
+
+    div.stats-individual {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 740px) {
+    div.individual-content {
+        width: 100%;
+    }
+
+    div.box-img-poke {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .tab-box {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: flex;
+        align-items: center;
+        font-size: 0.8em;
+        justify-content: center;
+    }
+
+    div.stats-individual {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    fieldset.set-stat input {
+        font-size: 1em;
+    }
+}
+
 /* UTILS */
 
 div.loading-box {
