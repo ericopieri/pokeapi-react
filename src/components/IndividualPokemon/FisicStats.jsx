@@ -47,7 +47,7 @@ const pokemonTypesIcons = {
 function FisicStats({ name, height, weight, types }) {
     function mapTypes() {
         return types.map(({ type }) => (
-            <div className={"type-box " + type.name}>
+            <div className={"type-box " + type.name} key={type.name}>
                 <img src={pokemonTypesIcons[type.name]} alt="Nome do Tipo" />
                 <span>{capitalizaFirstLetter(type.name)}</span>
             </div>

@@ -3,7 +3,7 @@ import React from "react";
 function DropdownStats({ statsArray }) {
     function mapStatsSpecs() {
         return statsArray.map(({ base_stat, stat }) => (
-            <div className="stats-div">
+            <div className="stats-div" key={stat.name}>
                 <span className="name-stat">
                     {stat.name[0].toUpperCase() + stat.name.slice(1)}
                 </span>

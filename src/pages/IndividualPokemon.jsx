@@ -15,6 +15,7 @@ function IndividualPokemon() {
 
     const [pokemonInfo, setPokemonInfo] = useState({});
 
+    const [showFront, setShowFront] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const [activeContent, setActiveContent] = useState("fisicStats");
 
@@ -66,6 +67,8 @@ function IndividualPokemon() {
             ) : Object.keys(pokemonInfo).length > 0 ? (
                 <>
                     <div
+                        onMouseEnter={() => setShowFront(false)}
+                        onMouseLeave={() => setShowFront(true)}
                         className={
                             pokemonInfo?.types
                                 ? "box-img-poke " +
@@ -76,7 +79,9 @@ function IndividualPokemon() {
                         <img
                             src={
                                 pokemonInfo?.sprites &&
-                                pokemonInfo.sprites.front_default
+                                (showFront
+                                    ? pokemonInfo.sprites.front_default
+                                    : pokemonInfo.sprites.back_default)
                             }
                             alt="Imagem Pokemon"
                         />

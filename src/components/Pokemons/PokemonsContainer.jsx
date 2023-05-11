@@ -54,7 +54,7 @@ function PokemonsContainer() {
                     pokemons &&
                     pokemons.results?.length > 0 &&
                     pokemons.results.map(({ name, url }) => (
-                        <CardPokemon name={name} urlToFetch={url} />
+                        <CardPokemon name={name} urlToFetch={url} key={name} />
                     ))
                 )}
             </div>
